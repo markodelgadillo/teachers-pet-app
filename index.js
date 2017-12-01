@@ -1,0 +1,6 @@
+const { MongoClient } = require('mongodb')
+const express = require('express')
+const app = express()
+const seed = require('./seed.js')
+const path = require('path')
+app.use(express.static('./public'))
