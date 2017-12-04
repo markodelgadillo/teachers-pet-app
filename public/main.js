@@ -3,7 +3,7 @@ const $container = document.querySelector('.container')
 const $UI = document.createElement('div')
 const $label = document.createElement('h2')
 $label.textContent = 'Teachers P.E.T.'
-$label.setAttribute('class', 'center-align')
+$label.setAttribute('class', 'center-align white-text')
 const $nav = document.createElement('nav')
 // $nav.setAttribute('class', 'nav')
 const $ul = document.createElement('ul')
@@ -11,6 +11,7 @@ $ul.setAttribute('class', 'collection card col s6 offset-s3 z-depth-3')
 $container.appendChild($label)
 
 function userMenu(users) {
+  document.body.setAttribute('class', 'blue lighten-3')
   const $row = document.createElement('div')
   $row.setAttribute('class', 'row')
   $container.appendChild($row)
