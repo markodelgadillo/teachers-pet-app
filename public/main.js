@@ -28,14 +28,12 @@ function userMenu(users) {
 }
 
 function teacherUI() {
+  $UI.setAttribute('class', 'row')
   const $students = document.createElement('div')
   const $notes = document.createElement('div')
 
-  $UI.setAttribute('class', 'row')
   $students.setAttribute('class', 'col s3 teal')
   $notes.setAttribute('class', 'col s9 grey lighten-3')
-
-  // $teacher.textContent = 'Teacher UI'
   $students.textContent = 'Student List'
   $notes.textContent = 'Notes'
 
@@ -45,14 +43,19 @@ function teacherUI() {
 }
 
 function studentUI() {
+  $UI.setAttribute('class', 'row')
   const $notes = document.createElement('div')
   const $respond = document.createElement('input')
   const $button = document.createElement('button')
 
+  $notes.setAttribute('class', 'card medium col s8 offset-s2 z-depth-3')
+  $respond.setAttribute('class', 'col s8 offset-s2 z-depth-1')
+  $button.setAttribute('class', 'col s1 z-depth-1')
+
   $container.appendChild($UI)
   $UI.appendChild($notes)
   $UI.appendChild($respond)
-  $respond.appendChild($button)
+  $UI.appendChild($button)
 }
 
 function parentUI() {
