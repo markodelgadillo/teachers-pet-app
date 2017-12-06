@@ -1,8 +1,10 @@
 const { MongoClient } = require('mongodb')
 const express = require('express')
 const app = express()
-const seed = require('./seed.js')
+// const seed = require('./seed.js')
 const path = require('path')
+const bodyParser = require('body-parser')
+
 app.use(express.static('./public'))
 
 MongoClient.connect('mongodb://localhost/library', function(err, db) {
@@ -12,16 +14,20 @@ MongoClient.connect('mongodb://localhost/library', function(err, db) {
   }
   const students = db.collection('students')
 
-  // app.get('/students', function(req, res) {
-  //   console.log('Getting stuff...')
-  //   res.json(students)
-  // })
+  app.get('/students', (req, res) => {
+    console.log(req)
+    console.log(res)
+    students
+      .find({}, { _id: 0 })
+      .toArray()
+      .then(response => res.json(response))
+  })
 
-  // app.post()
-  //
-  // app.pull()
-  //
-  // app.delete()
+  app.use(bodyParser.json)
+  // app.put('/students/:id', (req, res) => {
+  //   const id = parseInt(req.params.id, 10)
+  //   console.log('This is a put request')
+  // })
 
   app.listen(7777, function() {
     console.log('Listening on Port 7777.')
