@@ -1,11 +1,20 @@
 const users = ['Teacher', 'Student', 'Parent']
+
+const $studentName = document.createElement('div')
+const $studentGrade = document.createElement('div')
+const $parentName = document.createElement('div')
+
+const $left = document.createElement('div')
+const $right = document.createElement('div')
+
 const $container = document.querySelector('.container')
 const $UI = document.createElement('div')
 const $label = document.createElement('h2')
+
 $label.textContent = 'Teachers P.E.T.'
 $label.setAttribute('class', 'center-align white-text')
 const $nav = document.createElement('nav')
-// $nav.setAttribute('class', 'nav')
+
 const $ul = document.createElement('ul')
 $ul.setAttribute('class', 'collection card col s6 offset-s3 z-depth-3')
 $container.appendChild($label)
@@ -48,14 +57,33 @@ function studentUI() {
   const $respond = document.createElement('input')
   const $button = document.createElement('button')
 
-  $notes.setAttribute('class', 'card medium col s8 offset-s2 z-depth-3')
-  $respond.setAttribute('class', 'col s8 offset-s2 z-depth-1')
-  $button.setAttribute('class', 'col s1 z-depth-1')
+  $left.setAttribute('class', 'card col s4')
+
+  $studentName.setAttribute('class', 'card-content amber accent-1')
+  $studentName.textContent = 'Student Name'
+  $studentGrade.setAttribute('class', 'card-content amber accent-3')
+  $studentGrade.textContent = 'Grade'
+  $parentName.setAttribute('class', 'card-content amber accent-1')
+  $parentName.textContent = 'Parent Name'
+
+  $right.setAttribute('class', 'col s8')
+  $notes.setAttribute('class', 'card medium z-depth-3')
+  $respond.setAttribute('class', 'offset-s2 z-depth-1')
+  $respond.setAttribute('placeholder', 'Note...')
+  $button.setAttribute('class', 'col s2 offset-s10 z-depth-1')
+  $button.textContent = 'Send'
 
   $container.appendChild($UI)
-  $UI.appendChild($notes)
-  $UI.appendChild($respond)
-  $UI.appendChild($button)
+  $UI.appendChild($left)
+  $UI.appendChild($right)
+
+  $left.appendChild($studentName)
+  $left.appendChild($studentGrade)
+  $left.appendChild($parentName)
+
+  $right.appendChild($notes)
+  $right.appendChild($respond)
+  $right.appendChild($button)
 }
 
 function parentUI() {
@@ -80,21 +108,22 @@ function selectUser(event) {
       $container.innerHTML = ''
       teacherUI()
       console.log(id)
-      // add function that renders the teacher UI
       break
     case 'student':
       $container.innerHTML = ''
       studentUI()
       console.log(id)
-      // add function that renders the student UI
       break
     case 'parent':
       $container.innerHTML = ''
       parentUI()
       console.log(id)
-      // add function that renders the parents UI
       break
   }
+}
+
+const getNotes = () => {
+  return fetch('/students').then(res => res.json())
 }
 
 userMenu(users)
