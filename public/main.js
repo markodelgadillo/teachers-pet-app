@@ -122,8 +122,4 @@ function selectUser(event) {
   }
 }
 
-const getNotes = () => {
-  return fetch('/students').then(res => res.json())
-}
-
 userMenu(users)
