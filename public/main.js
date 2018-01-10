@@ -136,9 +136,8 @@ function parentUI() {
   $button.textContent = 'Send'
 
   $container.appendChild($UI)
-  $UI.appendChild($notes)
-  $UI.appendChild($respond)
-  $respond.appendChild($button)
+  $UI.appendChild($left)
+  $UI.appendChild($right)
 
   $left.appendChild($studentName)
   $left.appendChild($studentGrade)
