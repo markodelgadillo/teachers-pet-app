@@ -78,7 +78,19 @@ function teacherUI() {
   $students.setAttribute('class', 'col s3 teal')
   $notes.setAttribute('class', 'col s9 grey lighten-3')
   $students.textContent = 'Student List'
-  $notes.textContent = 'Notes'
+  // $notes.textContent = 'Notes'
+
+  $studentNotes.setAttribute('class', 'col s5 card medium z-depth-3')
+  $studentRespond.setAttribute('class', 'col s5 z-depth-1')
+  $studentRespond.setAttribute('placeholder', 'Notes to Student')
+  $studentBut.setAttribute('class', 'col s2 offset-s10 z-depth-1')
+  $studentBut.textContent = 'To Student'
+
+  $parentNotes.setAttribute('class', 'col s5  offset-s1 card medium z-depth-3')
+  $parentRespond.setAttribute('class', 'col s5 offset-s1 z-depth-1')
+  $parentRespond.setAttribute('placeholder', 'Notes to Parent')
+  $parentBut.setAttribute('class', 'col s2 offset-s10 z-depth-1')
+  $parentBut.textContent = 'To Parent'
 
   $container.appendChild($UI)
 
@@ -88,11 +100,11 @@ function teacherUI() {
   $notes.appendChild($studentNotes)
   $notes.appendChild($parentNotes)
 
-  $studentNotes.appendChild($studentRespond)
-  $studentNotes.appendChild($studentBut)
+  $notes.appendChild($studentRespond)
+  $notes.appendChild($studentBut)
 
-  $parentNotes.appendChild($parentRespond)
-  $parentNotes.appendChild($parentBut)
+  $notes.appendChild($parentRespond)
+  $notes.appendChild($parentBut)
 }
 
 function studentUI() {
