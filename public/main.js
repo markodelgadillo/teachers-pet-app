@@ -67,14 +67,32 @@ function teacherUI() {
   const $students = document.createElement('div')
   const $notes = document.createElement('div')
 
+  const $studentNotes = document.createElement('div')
+  const $studentRespond = document.createElement('input')
+  const $studentBut = document.createElement('button')
+
+  const $parentNotes = document.createElement('div')
+  const $parentRespond = document.createElement('input')
+  const $parentBut = document.createElement('button')
+
   $students.setAttribute('class', 'col s3 teal')
   $notes.setAttribute('class', 'col s9 grey lighten-3')
   $students.textContent = 'Student List'
   $notes.textContent = 'Notes'
 
   $container.appendChild($UI)
+
   $UI.appendChild($students)
   $UI.appendChild($notes)
+
+  $notes.appendChild($studentNotes)
+  $notes.appendChild($parentNotes)
+
+  $studentNotes.appendChild($studentRespond)
+  $studentNotes.appendChild($studentBut)
+
+  $parentNotes.appendChild($parentRespond)
+  $parentNotes.appendChild($parentBut)
 }
 
 function studentUI() {
