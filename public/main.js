@@ -67,10 +67,12 @@ function teacherUI() {
   const $students = document.createElement('div')
   const $notes = document.createElement('div')
 
+  const $studentWrap = document.createElement('div')
   const $studentNotes = document.createElement('div')
   const $studentRespond = document.createElement('input')
   const $studentBut = document.createElement('button')
 
+  const $parentWrap = document.createElement('div')
   const $parentNotes = document.createElement('div')
   const $parentRespond = document.createElement('input')
   const $parentBut = document.createElement('button')
@@ -80,16 +82,18 @@ function teacherUI() {
   $students.textContent = 'Student List'
   // $notes.textContent = 'Notes'
 
-  $studentNotes.setAttribute('class', 'col s5 card medium z-depth-3')
-  $studentRespond.setAttribute('class', 'col s5 z-depth-1')
+  $studentWrap.setAttribute('class', 'col s6')
+  $studentNotes.setAttribute('class', 'card medium z-depth-3')
+  $studentRespond.setAttribute('class', 'z-depth-1')
   $studentRespond.setAttribute('placeholder', 'Notes to Student')
-  $studentBut.setAttribute('class', 'col s2 offset-s10 z-depth-1')
+  $studentBut.setAttribute('class', 'col s4 offset-s8 z-depth-1')
   $studentBut.textContent = 'To Student'
 
-  $parentNotes.setAttribute('class', 'col s5  offset-s1 card medium z-depth-3')
-  $parentRespond.setAttribute('class', 'col s5 offset-s1 z-depth-1')
+  $parentWrap.setAttribute('class', 'col s6')
+  $parentNotes.setAttribute('class', 'offset-s1 card medium z-depth-3')
+  $parentRespond.setAttribute('class', 'offset-s1 z-depth-1')
   $parentRespond.setAttribute('placeholder', 'Notes to Parent')
-  $parentBut.setAttribute('class', 'col s2 offset-s10 z-depth-1')
+  $parentBut.setAttribute('class', 'col s4 offset-s8  z-depth-1')
   $parentBut.textContent = 'To Parent'
 
   $container.appendChild($UI)
@@ -97,14 +101,15 @@ function teacherUI() {
   $UI.appendChild($students)
   $UI.appendChild($notes)
 
-  $notes.appendChild($studentNotes)
-  $notes.appendChild($parentNotes)
+  $notes.appendChild($studentWrap)
+  $studentWrap.appendChild($studentNotes)
+  $studentWrap.appendChild($studentRespond)
+  $studentWrap.appendChild($studentBut)
 
-  $notes.appendChild($studentRespond)
-  $notes.appendChild($studentBut)
-
-  $notes.appendChild($parentRespond)
-  $notes.appendChild($parentBut)
+  $notes.appendChild($parentWrap)
+  $parentWrap.appendChild($parentNotes)
+  $parentWrap.appendChild($parentRespond)
+  $parentWrap.appendChild($parentBut)
 }
 
 function studentUI() {
